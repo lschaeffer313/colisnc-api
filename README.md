@@ -40,7 +40,7 @@ Then build/push to DockerHub :
 ```
 docker pull rastadidi/colisnc-api:latest
 docker images
-docker run -d -p 8080:8080 rastadidi/colisnc-api:latest
+docker run --net=host -d -p 8080:8080 rastadidi/colisnc-api:latest
 sudo apt-get install jq -y
 
 curl -sS http://localhost:8080//colis/CA107308006SI/latest | jq -r '.localisation' 
