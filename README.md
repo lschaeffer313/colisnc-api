@@ -46,4 +46,7 @@ sudo apt-get install jq -y
 curl -sS http://localhost:8080//colis/CA107308006SI/latest | jq -r '.localisation' 
 curl -sS http://localhost:8080//colis/CA107308006SI/latest | less
 curl -sS http://localhost:8080//colis/CA107308006SI/ | less
+
+# requires httpie
+http http://localhost:8080/colis/CA107308006SI/latest
 ```
