@@ -4,7 +4,7 @@ API des colis en Nouvelle-CalÃ©donie
 
 # Utilisation
 
-## DÃ©marrer le service
+## Démarrer le service
 
 ```
 mvn spring-boot:run
