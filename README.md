@@ -1,6 +1,6 @@
 # colisnc-api
 
-API des colis en Nouvelle-CalÃ©donie
+API des colis en Nouvelle-Calédonie
 
 # Utilisation
 
