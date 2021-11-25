@@ -20,8 +20,8 @@ mvn spring-boot:run
 ```
 / : swagger documentation
 /colis/{itemId}
-/colis/{itemId]/latest
-/colis/{itemId]/count
+/colis/{itemId}/latest
+/colis/{itemId}/count
 ```
 
 # jib build
@@ -48,9 +48,9 @@ docker images
 docker run --net=host -d -p 8080:8080 rastadidi/colisnc-api:latest
 sudo apt-get install jq -y
 
-curl -sS http://localhost:8080//colis/CA107308006SI/latest | jq -r '.localisation' 
-curl -sS http://localhost:8080//colis/CA107308006SI/latest | less
-curl -sS http://localhost:8080//colis/CA107308006SI/ | less
+curl -sS http://localhost:8080/colis/CA107308006SI/latest | jq -r '.localisation' 
+curl -sS http://localhost:8080/colis/CA107308006SI/latest | less
+curl -sS http://localhost:8080/colis/CA107308006SI/ | less
 
 # requires httpie
 http http://localhost:8080/colis/CA107308006SI/latest
