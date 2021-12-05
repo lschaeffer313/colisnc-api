@@ -25,7 +25,7 @@
         <ColisNcSDK.version>1.17</ColisNcSDK.version>
 
         <logback.version>1.2.7</logback.version>
-        <springdoc-openapi.version>1.5.10</springdoc-openapi.version>
+        <springdoc-openapi.version>1.5.13</springdoc-openapi.version>
     </properties>
 
     <repositories>
