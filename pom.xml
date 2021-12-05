@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.adriens.github.colisnc</groupId>
@@ -24,7 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <ColisNcSDK.version>1.17</ColisNcSDK.version>
-        
+
         <logback.version>1.2.7</logback.version>
         <springdoc-openapi.version>1.5.10</springdoc-openapi.version>
     </properties>
@@ -52,12 +51,12 @@
             <scope>runtime</scope>
         </dependency>
 
-        <dependency>            
-                <groupId>org.springdoc</groupId>            
-                <artifactId>springdoc-openapi-ui</artifactId>            
-                <version>${springdoc-openapi.version}</version>        
-            </dependency>
-            
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc-openapi.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>com.github.adriens</groupId>
             <artifactId>colisnc-sdk</artifactId>
@@ -74,7 +73,7 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
-        
+
         <!-- SCOPE TEST -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -89,7 +88,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-            
+
             <plugin>
                 <groupId>com.google.cloud.tools</groupId>
                 <artifactId>jib-maven-plugin</artifactId>
@@ -97,21 +96,12 @@
                 <configuration>
                     <from>
                         <image>openjdk:8u171-alpine</image>
-                        <!--          <credHelper></credHelper> -->
                     </from>
                     <to>
-                        <image>registry.hub.docker.com/rastadidi/colisnc-api</image>
-                        <!--          <credHelper></credHelper> -->
+                        <image>registry.hub.docker.com/optnc/colisnc-api</image>
                     </to>
-                    <container>
-                        <jvmFlags>
-                            <jvmFlag>-Xms512m</jvmFlag>
-                            <jvmFlag>-Xmx512m</jvmFlag>
-                        </jvmFlags>
-                    </container>
                 </configuration>
             </plugin>
-            
         </plugins>
     </build>
 </project>
