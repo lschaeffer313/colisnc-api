@@ -1,8 +1,15 @@
 version: 2
 updates:
-- package-ecosystem: maven
-  directory: "/"
-  schedule:
-    interval: daily
-    time: "18:00"
-  open-pull-requests-limit: 10
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'daily'
+
+  # Maintain dependencies for java
+  - package-ecosystem: maven
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '18:00'
+    open-pull-requests-limit: 10
