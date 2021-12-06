@@ -17,7 +17,31 @@ jobs:
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  conventional-commits-versionning-and-docker:
+    needs: [build]
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
+    name: Bump version and create release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - name: Install Semantic release and maven-semantic-release plugin
+        run: |
+          npm install -g semantic-release \
+          @conveyal/maven-semantic-release @semantic-release/git \
+          @semantic-release/changelog
+      - name: Run semantic release to bump version and create release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npx semantic-release --skip-maven-deploy
+
+      # et maintenant... Docker (pas de job pour rester sur le même repo potentiellement taggé)
       - name: Prepare tags
         id: image_tags
         run: |
@@ -29,4 +53,9 @@ jobs:
           fi
 
       - name: Publish on Docker Hub with
+        uses: actions/setup-java@v2
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+          cache: 'maven'
         run: mvn -B -Djib.to.auth.username=${{secrets.OPT_DOCKERHUB_LOGIN}} -Djib.to.auth.password=${{secrets.OPT_DOCKERHUB_PASSWORD}} -Djib.to.tags=${{steps.image_tags.outputs.tags}} compile jib:build
