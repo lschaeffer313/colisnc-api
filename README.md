@@ -6,7 +6,7 @@
 ![Docker Stars](https://img.shields.io/docker/stars/optnc/colisnc-api)
 ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/optnc/colisnc-api?arch=amd64&sort=date)
 
-# colisnc-api
+# ❔ A propos
 
 API des colis en Nouvelle-Calédonie.
 
@@ -17,7 +17,7 @@ Checker les ressources ci-dessous:
 - [Site web officiel de suivi d'où proviennent les données](https://webtracking-nca.ptc.post/)
 - [Sur le marketplace d'APIs](https://rapidapi.com/opt-nc-opt-nc-default/api/suivi-colis)
 
-# Utilisation
+# 🕹️Utilisation
 
 ## Démarrer le service
 
@@ -25,7 +25,7 @@ Checker les ressources ci-dessous:
 mvn spring-boot:run
 ```
 
-## Endpoint
+## 🔖Endpoints
 
 ```
 / : swagger documentation
@@ -34,7 +34,7 @@ mvn spring-boot:run
 /colis/{itemId}/count
 ```
 
-# Image use
+# 🐳Image use
 
 ```bash
 docker pull optnc/colisnc-api:latest
