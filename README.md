@@ -14,6 +14,7 @@ Checker les ressources ci-dessous:
 
 - [Tutorial Katacoda disponible pour déployer sur K8](https://katacoda.com/rastadidi/scenarios/k8s)
 - [Dev.to post](https://dev.to/adriens/getting-package-delivery-status-from-docker-at-opt-nc-8d1)
+- [Site web officiel de suivi d'où proviennent les données](https://webtracking-nca.ptc.post/)
 
 # Utilisation
 
