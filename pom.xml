@@ -75,6 +75,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludeDevtools>true</excludeDevtools>
+                </configuration>
             </plugin>
 
             <plugin>
@@ -82,7 +85,6 @@
                 <artifactId>jib-maven-plugin</artifactId>
                 <version>3.1.4</version>
 
-                <!-- Pour ne pas embarquer devtools -->
                 <dependencies>
                     <dependency>
                         <groupId>com.google.cloud.tools</groupId>
@@ -102,11 +104,8 @@
                         <image>eclipse-temurin:17-alpine</image>
                     </from>
                     <to>
-                        <image>optnc/colisnc-api:dev</image>
+                        <image>registry.hub.docker.com/optnc/colisnc-api</image>
                     </to>
-                    <container>
-                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
-                    </container>
                 </configuration>
             </plugin>
         </plugins>
