@@ -20,7 +20,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <ColisNcSDK.version>1.17</ColisNcSDK.version>
 
         <logback.version>1.2.7</logback.version>
@@ -94,7 +94,7 @@
                 <version>3.1.4</version>
                 <configuration>
                     <from>
-                        <image>openjdk:8u171-alpine</image>
+                        <image>eclipse-temurin:17-alpine</image>
                     </from>
                     <to>
                         <image>registry.hub.docker.com/optnc/colisnc-api</image>
