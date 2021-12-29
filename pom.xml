@@ -23,7 +23,7 @@
         <java.version>17</java.version>
         <ColisNcSDK.version>1.17</ColisNcSDK.version>
 
-        <springdoc-openapi.version>1.5.13</springdoc-openapi.version>
+        <springdoc-openapi.version>1.6.3</springdoc-openapi.version>
     </properties>
 
     <repositories>
