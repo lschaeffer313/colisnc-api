@@ -34,12 +34,14 @@ mvn spring-boot:run
 /colis/{itemId}/count
 ```
 
-# 🐳Image use
+# 🐳 Image use
+
+## Docker
 
 ```bash
 docker pull optnc/colisnc-api:latest
 docker images
-docker run --rm optnc/colisnc-api:latest
+docker run --rm -p 8080:8080 optnc/colisnc-api:latest
 sudo apt-get install jq -y
 
 curl -sS http://localhost:8080/colis/CA107308006SI/latest | jq -r '.localisation'
@@ -49,3 +51,7 @@ curl -sS http://localhost:8080/colis/CA107308006SI/ | less
 # requires httpie
 http http://localhost:8080/colis/CA107308006SI/latest
 ```
+
+## Knative
+
+La doc pas à pas est [ici](./doc/KNATIVE.md)
