@@ -5,11 +5,12 @@
  */
 package com.adriens.colisnc.api.service;
 
+import java.util.List;
+
 import com.adriens.colisnc.api.model.StepsCounter;
 import com.adriens.github.colisnc.colisnc.ColisCrawler;
 import com.adriens.github.colisnc.colisnc.ColisDataRow;
-import java.util.ArrayList;
-import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -25,9 +26,7 @@ public class ColisService {
     //private ColisCrawler wrap;
     
     public List<ColisDataRow> getColisRows(String itemId) throws Exception {
-        ArrayList<ColisDataRow> out;
-        out = ColisCrawler.getColisRows(itemId);
-        return out;
+        return ColisCrawler.getColisRows(itemId);
     }
     
     public ColisDataRow getLatestRow(String itemId) throws Exception {
@@ -41,7 +40,7 @@ public class ColisService {
         return new StepsCounter(ColisCrawler.getColisRows(itemId).size());
     }
 
-    public ArrayList<ColisDataRow> getLatestStatusForColisList(List<String> itemsId) throws Exception {
+    public List<ColisDataRow> getLatestStatusForColisList(List<String> itemsId) throws Exception {
         return ColisCrawler.getLatestStatusForColisList(itemsId);
     }
 
