@@ -56,7 +56,7 @@ jobs:
 
       - name: Build Docker Spring Native Image
         run: |
-            mvn -B spring-boot:build-image -DskipTests \
+            mvn -B spring-boot:build-image -Pspring-native -Pbuild-docker-image  -DskipTests \
               -Dspring-boot.build-image.imageName=optnc/colisnc-api:${{ steps.image_tags.outputs.version }} \
               -Dspring-boot.build-image.tags=${{ steps.image_tags.outputs.tags }}
         env:
