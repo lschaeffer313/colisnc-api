@@ -1,3 +1,5 @@
+**/access-filter.json
+
 /target/
 .classpath
 .idea/
