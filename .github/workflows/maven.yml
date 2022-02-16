@@ -52,17 +52,15 @@ jobs:
         run: |
            VERSION=$(git describe --tags --exact-match 2>/dev/null || true)
            if [[ $VERSION ]]; then
-            echo ::set-output name=version::"${VERSION##v}"
-            echo ::set-output name=tags::"latest,stable"
+            echo ::set-output name=tags::"${VERSION##v},latest,stable"
            else
-            echo ::set-output name=version::$(date -u +"%Y%m%d%H%M%S")
             echo ::set-output name=tags::"latest"
            fi
 
       - name: Build Docker Spring Native Image
         run: |
             mvn -B spring-boot:build-image -Pspring-native -Pbuild-docker-image  -DskipTests \
-              -Dspring-boot.build-image.imageName=optnc/colisnc-api:${{ steps.image_tags.outputs.version }} \
+              -Dspring-boot.build-image.imageName=optnc/colisnc-api \
               -Dspring-boot.build-image.tags=${{ steps.image_tags.outputs.tags }}
         env:
           MAVEN_OPTS: "-Xmx128m"
