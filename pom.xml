@@ -135,6 +135,7 @@
                         <configuration>
                             <image>
                                 <builder>paketobuildpacks/builder:tiny</builder>
+                                <tags>${spring-boot.build-image.tags}</tags>
                                 <env>
                                     <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
                                 </env>
