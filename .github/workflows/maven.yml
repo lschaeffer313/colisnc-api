@@ -76,6 +76,9 @@ jobs:
           username: ${{ secrets.OPT_DOCKERHUB_LOGIN }}
           password: ${{ secrets.OPT_DOCKERHUB_PASSWORD }}
 
+      - name: List all images
+        run: docker images -a
+
       - name: Push docker image to Docker Hub
         run: docker push --all-tags optnc/colisnc-api
 
