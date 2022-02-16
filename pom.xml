@@ -4,7 +4,7 @@
 
     <groupId>com.adriens.github.colisnc</groupId>
     <artifactId>colisnc-api</artifactId>
-    <version>1.14.10</version>
+    <version>1.14.11</version>
     <packaging>jar</packaging>
 
     <name>colisnc-api</name>
