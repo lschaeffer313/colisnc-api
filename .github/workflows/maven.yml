@@ -52,9 +52,9 @@ jobs:
         run: |
            VERSION=$(git describe --tags --exact-match 2>/dev/null || true)
            if [[ $VERSION ]]; then
-            echo ::set-output name=tags::"${VERSION##v},latest,stable"
+            echo ::set-output name=tags::"optnc/colisnc-api:${VERSION##v},optnc/colisnc-api:latest,optnc/colisnc-api:stable"
            else
-            echo ::set-output name=tags::"latest"
+            echo ::set-output name=tags::"optnc/colisnc-api:latest"
            fi
 
       - name: Build Docker Spring Native Image
