@@ -53,9 +53,19 @@ jobs:
            VERSION=$(git describe --tags --exact-match 2>/dev/null || true)
            if [[ $VERSION ]]; then
             echo ::set-output name=tags::"optnc/colisnc-api:${VERSION##v},optnc/colisnc-api:latest,optnc/colisnc-api:stable"
+            echo ::set-output name=tags_jvm::"optnc/colisnc-api:${VERSION##v}-jvm,optnc/colisnc-api:latest-jvm,optnc/colisnc-api:stable-jvm"
            else
             echo ::set-output name=tags::"optnc/colisnc-api:latest"
+            echo ::set-output name=tags_jvm::"optnc/colisnc-api:latest-jvm"
            fi
+
+      - name: Build regular Docker Image (with JVM, non-native)
+        run: |
+            mvn -B spring-boot:build-image -DskipTests \
+              -Dspring-boot.build-image.imageName=optnc/colisnc-api \
+              -Dspring-boot.build-image.tags=${{ steps.image_tags.outputs.tags_jvm }}
+        env:
+          MAVEN_OPTS: "-Xmx128m"
 
       - name: Build Docker Spring Native Image
         run: |
