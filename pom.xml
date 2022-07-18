@@ -145,6 +145,7 @@
                                 <tags>${spring-boot.build-image.tags}</tags>
                                 <env>
                                     <BP_NATIVE_IMAGE>true</BP_NATIVE_IMAGE>
+                                    <buildArgs>-Duser.country=NC -Duser.language=fr -H:IncludeLocales=fr</buildArgs>
                                 </env>
                             </image>
                         </configuration>
