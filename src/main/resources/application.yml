@@ -2,4 +2,17 @@
 # To change this template file, choose Tools | Templates
 # and open the template in the editor.
 # swagger-ui custom path
-springdoc.swagger-ui.path=/
+springdoc.swagger-ui.path: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info"
+        
+  info:
+    git:
+      mode: full
+    
+    java:
+      enabled: true
