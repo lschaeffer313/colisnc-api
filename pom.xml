@@ -177,6 +177,7 @@
                         <configuration>
                             <!-- The native image build needs to know the entry point to your application -->
                             <mainClass>com.adriens.colisnc.api.ColisNcAPIApplication</mainClass>
+                            <buildArgs>-Duser.country=NC -Duser.language=fr -H:IncludeLocales=fr</buildArgs>
                         </configuration>
                         <executions>
                             <execution>
