@@ -7,35 +7,41 @@ package com.adriens.colisnc.api.controller;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
 import com.adriens.colisnc.api.model.StepsCounter;
 import com.adriens.colisnc.api.service.ColisService;
 import com.adriens.github.colisnc.colisnc.ColisDataRow;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author 3004SAL
  */
-@RestController
+@Path("/colis")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ColisController {
-    @Autowired
+    
+    @Inject
     private ColisService colisService;
     
     private final Logger log = LoggerFactory.getLogger(ColisController.class);
     
-    @GetMapping("/colis/{itemId}")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public List<ColisDataRow> getColisRows(@PathVariable String itemId) throws Exception {
+    @GET
+    @Path("/{itemId}")
+    public List<ColisDataRow> getColisRows(@PathParam("itemId") String itemId) throws Exception {
         try{
+            System.out.println("x");
             return colisService.getColisRows(itemId);
         }
         catch(Exception ex){
@@ -44,9 +50,9 @@ public class ColisController {
         }
     }
     
-    @GetMapping("/colis/{itemId}/latest")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public ColisDataRow getLatest(@PathVariable String itemId) throws Exception {
+    @GET
+    @Path("/{itemId}/latest")
+    public ColisDataRow getLatest(@PathParam("itemId") String itemId) throws Exception {
         try{
             return colisService.getLatestRow(itemId);
         }
@@ -56,9 +62,10 @@ public class ColisController {
         }
     }
     
-    @GetMapping("/colis/{itemId}/count")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public StepsCounter getNbSteps(@PathVariable String itemId) throws Exception {
+    
+    @GET
+    @Path("/{itemId}/count")
+    public StepsCounter getNbSteps(@PathParam("itemId") String itemId) throws Exception {
         try{
             return colisService.getNbSteps(itemId);
         }
@@ -68,9 +75,9 @@ public class ColisController {
         }
     }
 
-    @PostMapping("/colis/list/latest")
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    public List<ColisDataRow> getLastStatusFromColisList(@RequestBody List<String> itemsId) throws Exception {
+    @POST
+    @Path("/list/latest")
+    public List<ColisDataRow> getLastStatusFromColisList(List<String> itemsId) throws Exception {
         try{
             return colisService.getLatestStatusForColisList(itemsId);
         }
